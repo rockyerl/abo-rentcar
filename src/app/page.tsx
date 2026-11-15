@@ -1,68 +1,55 @@
 "use client";
-import { useEffect } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Benefits from "@/components/Benefits";
-import Fleet from "@/components/Fleet";
-import OrderForm from "@/components/OrderForm";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import FloatingWA from "@/components/FloatingWA";
+
+import { useState } from "react";
+import Navbar from "@/shared/components/Navbar";
+import Hero from "@/features/hero/components/Hero";
+import CaseStudies from "@/features/cases/components/CaseStudies";
+import Fleet from "@/features/fleet/components/Fleet";
+import HowItWorks from "@/features/howitworks/components/HowItWorks";
+import OrderForm from "@/features/booking/components/OrderForm";
+import FAQ from "@/features/faq/components/FAQ";
+import Contact from "@/features/contact/components/Contact";
+import Footer from "@/shared/components/Footer";
+import FloatingWA from "@/shared/components/FloatingWA";
 
 export default function Home() {
-    useEffect(() => {
-        // Scroll animations
-        const observer = new IntersectionObserver(
-            (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("anim-visible"); }),
-            { threshold: 0.1 }
-        );
-        document.querySelectorAll(".anim-hidden").forEach((el) => observer.observe(el));
+  const [calculatorCarId, setCalculatorCarId] = useState<string | undefined>(undefined);
 
-        // Custom cursor
-        const cursor = document.querySelector(".cursor") as HTMLElement;
-        const ring = document.querySelector(".cursor-ring") as HTMLElement;
-        let rx = 0, ry = 0;
+  const handleSelectCarForCalculator = (carId: string) => {
+    setCalculatorCarId(carId);
+    const element = document.getElementById("kalkulator");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-        const moveCursor = (e: MouseEvent) => {
-            if (cursor) { cursor.style.left = e.clientX - 6 + "px"; cursor.style.top = e.clientY - 6 + "px"; }
-            rx += (e.clientX - 18 - rx) * 0.15;
-            ry += (e.clientY - 18 - ry) * 0.15;
-            if (ring) { ring.style.left = rx + "px"; ring.style.top = ry + "px"; }
-        };
+  return (
+    <>
+      <Navbar />
+      <main>
+        {/* 1. Hero: Solusi Perjalanan Nyata */}
+        <Hero />
 
-        let rafId: number;
-        const smoothRing = (e: MouseEvent) => {
-            cancelAnimationFrame(rafId);
-            rafId = requestAnimationFrame(() => moveCursor(e));
-        };
+        {/* 2. CASE STUDIES FIRST: Skenario & Bukti Nyata Pelanggan */}
+        <CaseStudies onSelectCarForBooking={handleSelectCarForCalculator} />
 
-        document.addEventListener("mousemove", smoothRing);
+        {/* 3. Pilihan Mobil Lengkap */}
+        <Fleet onSelectCar={handleSelectCarForCalculator} />
 
-        document.querySelectorAll("a, button").forEach((el) => {
-            el.addEventListener("mouseenter", () => { if (cursor) cursor.style.transform = "scale(2.5)"; if (ring) ring.style.transform = "scale(1.5)"; });
-            el.addEventListener("mouseleave", () => { if (cursor) cursor.style.transform = "scale(1)"; if (ring) ring.style.transform = "scale(1)"; });
-        });
+        {/* 4. Cara Sewa Ringkas (Tanpa Deposit) */}
+        <HowItWorks />
 
-        return () => {
-            observer.disconnect();
-            document.removeEventListener("mousemove", smoothRing);
-        };
-    }, []);
+        {/* 5. Kalkulator & Booking Instan */}
+        <OrderForm selectedCarId={calculatorCarId} />
 
-    return (
-        <>
-            <div className="cursor" />
-            <div className="cursor-ring" />
-            <Navbar />
-            <main>
-                <Hero />
-                <Benefits />
-                <Fleet />
-                <OrderForm />
-                <Contact />
-            </main>
-            <Footer />
-            <FloatingWA />
-        </>
-    );
+        {/* 6. Tanya Jawab (FAQ) */}
+        <FAQ />
+
+        {/* 7. Hub Padalarang & Kontak */}
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingWA />
+    </>
+  );
 }
