@@ -40,9 +40,6 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
     return calculateBookingPrice(activeCar, durationDays, driverOption);
   }, [activeCar, durationDays, driverOption]);
 
-  const isManualLocation =
-    pickupLocation === "Lainnya (Isi Alamat Manual)" || customPickupAddress.length > 0;
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const formData: BookingFormData = {
@@ -64,72 +61,73 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
   };
 
   return (
-    <section id="kalkulator" className="py-24 bg-[#031c3b] relative border-t border-[#0280F9]/15">
+    <section
+      id="kalkulator"
+      className="py-16 sm:py-24 bg-[#031c3b] relative border-t border-[#0280F9]/15"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <div className="vip-badge">
             <Calculator size={13} />
             Simulasi Biaya Transparan &amp; Jelas
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Kalkulator Sewa Mobil <span className="blue-gradient-text">&amp; Booking Instan.</span>
           </h2>
-          <p className="text-gray-300 text-base leading-relaxed">
+          <p className="text-gray-300 text-xs sm:text-base leading-relaxed">
             Hitung sendiri estimasi biaya sewa mobil Anda dengan akurat. Nikmati tarif hemat sewa
             &gt;2 hari tanpa ada biaya terselubung.
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Form: 7 cols */}
-          <div className="lg:col-span-7 luxury-card p-6 sm:p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="lg:col-span-7 luxury-card p-5 sm:p-8">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
               {/* Service Type Switcher */}
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-2">
                   Pilih Cara Rental Anda *
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   <button
                     type="button"
                     onClick={() => setDriverOption("self-drive")}
-                    className={`p-3.5 rounded-xl border text-left transition-all ${
+                    className={`p-3 sm:p-3.5 rounded-xl border text-left transition-all ${
                       driverOption === "self-drive"
                         ? "bg-[#0280F9]/20 border-[#0280F9] text-white"
                         : "bg-[#02162e] border-white/10 text-gray-400 hover:text-white"
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-sm text-white">Lepas Kunci</span>
+                    <div className="flex items-center justify-between mb-0.5 sm:mb-1">
+                      <span className="font-bold text-xs sm:text-sm text-white">Lepas Kunci</span>
                       {driverOption === "self-drive" && (
-                        <Check size={16} className="text-[#0280F9]" />
+                        <Check size={15} className="text-[#0280F9]" />
                       )}
                     </div>
-                    <p className="text-xs text-gray-300">
-                      Bebas setir sendiri, tanpa deposit rumit
+                    <p className="text-[10px] sm:text-xs text-gray-300">
+                      Bebas setir sendiri tanpa deposit
                     </p>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setDriverOption("with-chauffeur")}
-                    className={`p-3.5 rounded-xl border text-left transition-all ${
+                    className={`p-3 sm:p-3.5 rounded-xl border text-left transition-all ${
                       driverOption === "with-chauffeur"
                         ? "bg-[#0280F9]/20 border-[#0280F9] text-white"
                         : "bg-[#02162e] border-white/10 text-gray-400 hover:text-white"
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-sm text-white">Plus Supir Ramah</span>
+                    <div className="flex items-center justify-between mb-0.5 sm:mb-1">
+                      <span className="font-bold text-xs sm:text-sm text-white">Plus Supir</span>
                       {driverOption === "with-chauffeur" && (
-                        <Check size={16} className="text-[#0280F9]" />
+                        <Check size={15} className="text-[#0280F9]" />
                       )}
                     </div>
-                    <p className="text-xs text-gray-300">
-                      Duduk tenang, supir sopan &amp; hafal rute
-                    </p>
+                    <p className="text-[10px] sm:text-xs text-gray-300">Supir sopan &amp; ramah</p>
                   </button>
                 </div>
               </div>
@@ -143,7 +141,7 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                   <select
                     value={carId}
                     onChange={(e) => setCarId(e.target.value)}
-                    className="luxury-input w-full font-sans cursor-pointer pr-10 text-sm"
+                    className="luxury-input w-full font-sans cursor-pointer pr-10 text-xs sm:text-sm"
                   >
                     {CARS.map((car) => (
                       <option key={car.id} value={car.id} className="bg-[#04244D] text-white">
@@ -159,18 +157,18 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
               </div>
 
               {/* Rental Dates */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-2 flex items-center gap-1.5">
                     <Calendar size={13} className="text-[#0280F9]" />
-                    Tanggal Mulai Sewa *
+                    Mulai Sewa *
                   </label>
                   <input
                     type="date"
                     value={startDate}
                     min={today}
                     onChange={(e) => setStartDate(e.target.value)}
-                    className="luxury-input w-full font-mono text-sm"
+                    className="luxury-input w-full font-mono text-xs sm:text-sm"
                     required
                   />
                 </div>
@@ -178,27 +176,27 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                 <div>
                   <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-2 flex items-center gap-1.5">
                     <Calendar size={13} className="text-[#0280F9]" />
-                    Tanggal Selesai Sewa *
+                    Selesai Sewa *
                   </label>
                   <input
                     type="date"
                     value={endDate}
                     min={startDate || today}
                     onChange={(e) => setEndDate(e.target.value)}
-                    className="luxury-input w-full font-mono text-sm"
+                    className="luxury-input w-full font-mono text-xs sm:text-sm"
                     required
                   />
                 </div>
               </div>
 
               {/* Hybrid Pickup Location (Dropdown + Manual Input) */}
-              <div className="space-y-3">
-                <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 flex items-center justify-between">
+              <div className="space-y-2.5 sm:space-y-3">
+                <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                   <span className="flex items-center gap-1.5">
                     <MapPin size={13} className="text-[#0280F9]" />
                     Titik Penjemputan / Pengantaran Unit *
                   </span>
-                  <span className="text-[11px] text-[#0280F9] font-normal normal-case">
+                  <span className="text-[10px] sm:text-[11px] text-[#0280F9] font-normal normal-case">
                     Bisa pilih lokasi atau ketik manual
                   </span>
                 </label>
@@ -215,7 +213,7 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                       setCustomPickupAddress("");
                     }
                   }}
-                  className="luxury-input w-full font-sans cursor-pointer text-sm"
+                  className="luxury-input w-full font-sans cursor-pointer text-xs sm:text-sm"
                 >
                   {STRATEGIC_LOCATIONS.map((loc, i) => (
                     <option key={i} value={loc} className="bg-[#04244D] text-white">
@@ -236,24 +234,19 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                       }
                     }}
                     placeholder="Atau ketik alamat lengkap/nama hotel/villa di sini..."
-                    className="luxury-input w-full text-sm pl-10 pr-4"
+                    className="luxury-input w-full text-xs sm:text-sm pl-9 sm:pl-10 pr-3 sm:pr-4"
                   />
                   <Edit3
-                    size={15}
-                    className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
+                    size={14}
+                    className="absolute left-3 sm:left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
                   />
                 </div>
-                <p className="text-[11px] text-gray-400">
-                  {pickupLocation === "Lainnya (Isi Alamat Manual)" && customPickupAddress
-                    ? `Lokasi terpilih: "${customPickupAddress}"`
-                    : "Pilih dari daftar di atas atau ketik langsung alamat penjemputan Anda."}
-                </p>
               </div>
 
               {/* Contact Data */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-2">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5 sm:mb-2">
                     Nama Pemesan *
                   </label>
                   <input
@@ -262,12 +255,12 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Nama Lengkap Anda..."
                     required
-                    className="luxury-input w-full text-sm"
+                    className="luxury-input w-full text-xs sm:text-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-2">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5 sm:mb-2">
                     Nomor WhatsApp Aktif *
                   </label>
                   <input
@@ -276,14 +269,14 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="08xxxxxxxxxx"
                     required
-                    className="luxury-input w-full text-sm font-mono"
+                    className="luxury-input w-full text-xs sm:text-sm font-mono"
                   />
                 </div>
               </div>
 
               {/* Flight or Train info */}
               <div>
-                <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-2">
+                <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5 sm:mb-2">
                   Nomor Kereta Whoosh / Pesawat (Opsional)
                 </label>
                 <input
@@ -291,32 +284,31 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                   value={flightOrTrainNumber}
                   onChange={(e) => setFlightOrTrainNumber(e.target.value)}
                   placeholder="Contoh: Whoosh G1234 / GA-120"
-                  className="luxury-input w-full text-sm font-mono"
+                  className="luxury-input w-full text-xs sm:text-sm font-mono"
                 />
               </div>
 
               {/* Extras Toggle */}
-              <label className="flex items-start gap-3 cursor-pointer group pt-1">
+              <label className="flex items-start gap-2.5 sm:gap-3 cursor-pointer group pt-1">
                 <input
                   type="checkbox"
                   checked={includeAirportMeet}
                   onChange={(e) => setIncludeAirportMeet(e.target.checked)}
-                  className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-[#0280F9] focus:ring-[#0280F9]"
+                  className="mt-0.5 sm:mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-[#0280F9] focus:ring-[#0280F9] shrink-0"
                 />
                 <div>
                   <span className="text-xs font-medium text-gray-200 group-hover:text-white">
-                    Butuh antar-jemput gratis di Stasiun Whoosh Padalarang
+                    Antar-jemput gratis di Stasiun Whoosh Padalarang
                   </span>
-                  <p className="text-[11px] text-gray-400">
-                    Tim kami akan siap menyambut di Stasiun Padalarang tepat waktu sebelum kereta
-                    tiba.
+                  <p className="text-[10px] sm:text-[11px] text-gray-400">
+                    Tim kami siap menyambut tepat waktu sebelum jadwal kedatangan kereta Anda.
                   </p>
                 </div>
               </label>
 
               {/* Notes */}
               <div>
-                <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-2">
+                <label className="block text-xs font-mono uppercase tracking-wider text-gray-300 mb-1.5 sm:mb-2">
                   Catatan Tambahan (Opsional)
                 </label>
                 <textarea
@@ -324,50 +316,56 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Kebutuhan khusus atau jadwal perjalanan..."
-                  className="luxury-input w-full text-sm resize-none"
+                  className="luxury-input w-full text-xs sm:text-sm resize-none"
                 />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="btn-action w-full py-4 rounded-xl text-sm uppercase tracking-wider flex items-center justify-center gap-2.5"
+                className="btn-action w-full py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2.5"
               >
-                <WhatsAppIcon size={18} />
+                <WhatsAppIcon size={17} />
                 <span>Cek ketersediaan mobil</span>
               </button>
             </form>
           </div>
 
           {/* Right Summary: 5 cols */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="luxury-card p-6 sm:p-8 space-y-6">
-              <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                <h3 className="text-lg font-bold text-white tracking-tight">Ringkasan Estimasi</h3>
-                <span className="text-xs font-mono text-[#0280F9] bg-[#0280F9]/10 px-2.5 py-1 rounded-full border border-[#0280F9]/30">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
+            <div className="luxury-card p-5 sm:p-8 space-y-5 sm:space-y-6">
+              <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10">
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                  Ringkasan Estimasi
+                </h3>
+                <span className="text-[11px] sm:text-xs font-mono text-[#0280F9] bg-[#0280F9]/10 px-2.5 py-1 rounded-full border border-[#0280F9]/30">
                   {calculation.totalDays} Hari Sewa
                 </span>
               </div>
 
               {/* Selected Car Card Preview */}
-              <div className="flex items-center gap-4 p-3.5 rounded-xl bg-[#02162e] border border-white/10">
+              <div className="flex items-center gap-3.5 sm:gap-4 p-3 sm:p-3.5 rounded-xl bg-[#02162e] border border-white/10">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={activeCar.image}
                   alt={activeCar.name}
-                  className="w-20 h-20 object-contain rounded-lg bg-black/40 p-1 border border-white/5"
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg bg-black/40 p-1 border border-white/5 shrink-0"
                 />
-                <div>
-                  <h4 className="font-bold text-white text-sm">{activeCar.name}</h4>
-                  <p className="text-xs text-gray-400 font-mono">{activeCar.modelType}</p>
-                  <span className="inline-block mt-1 text-[11px] font-mono text-[#0280F9]">
+                <div className="min-w-0">
+                  <h4 className="font-bold text-white text-xs sm:text-sm truncate">
+                    {activeCar.name}
+                  </h4>
+                  <p className="text-[11px] sm:text-xs text-gray-400 font-mono mt-0.5 truncate">
+                    {activeCar.modelType}
+                  </p>
+                  <span className="inline-block mt-1 text-[10px] sm:text-[11px] font-mono text-[#0280F9]">
                     {driverOption === "self-drive" ? "Lepas Kunci" : "Plus Supir"}
                   </span>
                 </div>
               </div>
 
               {/* Pricing Breakdown */}
-              <div className="space-y-3 text-sm">
+              <div className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
                 <div className="flex justify-between text-gray-300">
                   <span>Tarif Harian ({calculation.totalDays > 2 ? ">2 Hari" : "1 Hari"})</span>
                   <span className="font-mono text-white">{calculation.formattedDailyRate}</span>
@@ -384,25 +382,27 @@ export default function OrderForm({ selectedCarId }: { selectedCarId?: string })
                   </div>
                 )}
 
-                <div className="pt-4 border-t border-white/10 flex justify-between items-baseline">
+                <div className="pt-3.5 sm:pt-4 border-t border-white/10 flex justify-between items-baseline">
                   <div>
-                    <span className="block text-xs font-mono uppercase tracking-wider text-gray-400">
+                    <span className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-gray-400">
                       Total Estimasi
                     </span>
-                    <span className="text-[11px] text-gray-400">Belum termasuk BBM</span>
+                    <span className="text-[10px] sm:text-[11px] text-gray-400">
+                      Belum termasuk BBM
+                    </span>
                   </div>
-                  <span className="text-2xl font-black text-white font-mono">
+                  <span className="text-xl sm:text-2xl font-black text-white font-mono">
                     {calculation.formattedFinalTotal}
                   </span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#02162e]/80 border border-white/5 space-y-2 text-xs text-gray-300">
-                <div className="flex items-center gap-2 text-[#0280F9] font-semibold">
+              <div className="p-3.5 sm:p-4 rounded-xl bg-[#02162e]/80 border border-white/5 space-y-1.5 sm:space-y-2 text-xs text-gray-300">
+                <div className="flex items-center gap-1.5 text-[#0280F9] font-semibold text-xs">
                   <Check size={14} />
-                  <span>Komunikasi Praktis, Ramah, dan Jelas</span>
+                  <span>Praktis, Ramah, dan Jelas</span>
                 </div>
-                <p className="text-[11px] text-gray-400 leading-relaxed">
+                <p className="text-[10px] sm:text-[11px] text-gray-400 leading-relaxed">
                   Semua armada dirawat rutin, ber-AC dingin, bersih wangi, dan diantar tepat waktu.
                   Bebas konsultasi rute &amp; jadwal kapan saja.
                 </p>

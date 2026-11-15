@@ -8,7 +8,6 @@ import {
   Calendar,
   Quote,
   Star,
-  ChevronRight,
   ArrowRight,
 } from "lucide-react";
 
@@ -39,35 +38,38 @@ export default function CaseStudies({
   };
 
   return (
-    <section id="case-studies" className="py-24 bg-[#031C3B] relative border-t border-white/5">
+    <section
+      id="case-studies"
+      className="py-16 sm:py-24 bg-[#031C3B] relative border-t border-white/5"
+    >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#0280F9]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-[#0280F9]/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header: Scenario & Outcome First */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3 sm:space-y-4">
           <div className="vip-badge">
             <Sparkles size={13} />
             Studi Kasus Skenario Nyata
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Pengalaman Nyata Bersama <span className="blue-gradient-text">Abo Rent Car.</span>
           </h2>
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-300 text-xs sm:text-base leading-relaxed">
             Setiap perjalanan memiliki kebutuhan berbeda. Berikut adalah cara kami memberikan solusi
             praktis, ramah, dan jelas bagi pelanggan di lapangan.
           </p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex gap-2.5 overflow-x-auto pb-4 mb-10 no-scrollbar justify-start sm:justify-center">
+        {/* Category Tabs: Smooth horizontal swipe on mobile */}
+        <div className="flex gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:justify-center">
           {CASE_STUDIES.map((cs) => {
             const isActive = cs.id === activeCase.id;
             return (
               <button
                 key={cs.id}
                 onClick={() => setActiveCaseId(cs.id)}
-                className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border flex items-center gap-2 ${
+                className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border flex items-center gap-1.5 sm:gap-2 shrink-0 ${
                   isActive
                     ? "bg-[#005DBD] text-white border-[#0280F9] shadow-lg shadow-[#005DBD]/30"
                     : "bg-[#02162e] text-gray-400 border-white/5 hover:text-white hover:border-white/10"
@@ -81,38 +83,38 @@ export default function CaseStudies({
         </div>
 
         {/* Case Study Detail Container */}
-        <div className="luxury-card p-6 sm:p-10 relative overflow-hidden">
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="luxury-card p-5 sm:p-10 relative overflow-hidden">
+          <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-start">
             {/* Left 7 cols: Challenge & Solution Breakdown */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
               <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0280F9] bg-[#0280F9]/10 px-3 py-1 rounded-full border border-[#0280F9]/20">
+                <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#0280F9] bg-[#0280F9]/10 px-2.5 sm:px-3 py-1 rounded-full border border-[#0280F9]/20">
                   {activeCase.clientCategory}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-3">
+                <h3 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight mt-2.5 sm:mt-3 leading-snug">
                   {activeCase.title}
                 </h3>
               </div>
 
               {/* Scenario Overview */}
-              <div className="grid sm:grid-cols-3 gap-3 py-3 px-4 rounded-xl bg-[#02162e] border border-white/5 text-xs text-gray-300">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-[#02162e] border border-white/5 text-xs text-gray-300">
                 <div className="flex items-center gap-2">
-                  <MapPin size={14} className="text-[#0280F9] shrink-0" />
+                  <MapPin size={13} className="text-[#0280F9] shrink-0" />
                   <span className="truncate">{activeCase.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Calendar size={14} className="text-[#0280F9] shrink-0" />
+                  <Calendar size={13} className="text-[#0280F9] shrink-0" />
                   <span>{activeCase.duration}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Car size={14} className="text-[#0280F9] shrink-0" />
+                  <Car size={13} className="text-[#0280F9] shrink-0" />
                   <span className="truncate">{activeCase.vehicleUsed}</span>
                 </div>
               </div>
 
               {/* Challenge Box */}
-              <div className="p-4 rounded-xl bg-red-950/20 border border-red-500/20 space-y-2">
-                <div className="flex items-center gap-2 text-red-400 text-xs font-bold font-mono uppercase tracking-wider">
+              <div className="p-3.5 sm:p-4 rounded-xl bg-red-950/20 border border-red-500/20 space-y-1.5 sm:space-y-2">
+                <div className="flex items-center gap-2 text-red-400 text-[11px] sm:text-xs font-bold font-mono uppercase tracking-wider">
                   <span>Kebutuhan / Tantangan:</span>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
@@ -121,9 +123,9 @@ export default function CaseStudies({
               </div>
 
               {/* Solution Box */}
-              <div className="p-4 rounded-xl bg-blue-950/20 border border-[#0280F9]/25 space-y-2">
-                <div className="flex items-center gap-2 text-[#0280F9] text-xs font-bold font-mono uppercase tracking-wider">
-                  <CheckCircle2 size={14} />
+              <div className="p-3.5 sm:p-4 rounded-xl bg-blue-950/20 border border-[#0280F9]/25 space-y-1.5 sm:space-y-2">
+                <div className="flex items-center gap-2 text-[#0280F9] text-[11px] sm:text-xs font-bold font-mono uppercase tracking-wider">
+                  <CheckCircle2 size={13} />
                   <span>Solusi dari Abo Rent Car:</span>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
@@ -133,47 +135,49 @@ export default function CaseStudies({
             </div>
 
             {/* Right 5 cols: Client Quote & Immediate Booking Action */}
-            <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
+            <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-5 sm:space-y-6">
               {/* Testimonial Quote Box */}
-              <div className="p-6 rounded-2xl bg-[#02162e] border border-white/10 space-y-4 relative">
-                <Quote size={28} className="text-[#0280F9]/40" />
-                <p className="text-sm sm:text-base text-gray-200 italic leading-relaxed">
+              <div className="p-4 sm:p-6 rounded-2xl bg-[#02162e] border border-white/10 space-y-3 sm:space-y-4 relative">
+                <Quote size={24} className="text-[#0280F9]/40" />
+                <p className="text-xs sm:text-base text-gray-200 italic leading-relaxed">
                   &ldquo;{activeCase.quote}&rdquo;
                 </p>
 
-                <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                <div className="pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between">
                   <div>
-                    <h4 className="text-sm font-bold text-white">{activeCase.clientName}</h4>
-                    <span className="text-[11px] text-gray-400 font-mono">
+                    <h4 className="text-xs sm:text-sm font-bold text-white">
+                      {activeCase.clientName}
+                    </h4>
+                    <span className="text-[10px] sm:text-[11px] text-gray-400 font-mono">
                       {activeCase.location}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-1 text-amber-400">
                     {[...Array(activeCase.rating)].map((_, i) => (
-                      <Star key={i} size={13} fill="currentColor" />
+                      <Star key={i} size={12} fill="currentColor" />
                     ))}
                   </div>
                 </div>
               </div>
 
               {/* Booking CTA for this car model */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-[#04244D] to-[#02162e] border border-[#0280F9]/30 space-y-4 shadow-xl">
+              <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-[#04244D] to-[#02162e] border border-[#0280F9]/30 space-y-3 sm:space-y-4 shadow-xl">
                 <div>
-                  <span className="text-[10px] font-mono text-[#0280F9] uppercase tracking-wider block">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#0280F9] uppercase tracking-wider block">
                     Ingin Perjalanan Serupa?
                   </span>
-                  <h4 className="text-base font-bold text-white mt-0.5">
+                  <h4 className="text-sm sm:text-base font-bold text-white mt-0.5">
                     Sewa {activeCase.vehicleUsed}
                   </h4>
-                  <p className="text-xs text-gray-300 mt-1">
+                  <p className="text-[11px] sm:text-xs text-gray-300 mt-1">
                     Hitung simulasi tarif transparan dan pesan unit siap jalan.
                   </p>
                 </div>
 
                 <button
                   onClick={handleBookingFromCase}
-                  className="btn-action w-full py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2"
+                  className="btn-action w-full py-3 sm:py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2"
                 >
                   <span>Cek ketersediaan mobil</span>
                   <ArrowRight size={14} />
