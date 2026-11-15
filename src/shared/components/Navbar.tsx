@@ -84,18 +84,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <a
-              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-                "Halo Abo Rent Car, saya ingin cek ketersediaan mobil."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-action p-2 rounded-lg text-white"
-              aria-label="WhatsApp"
-            >
-              <WhatsAppIcon size={18} />
-            </a>
+          <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5"
