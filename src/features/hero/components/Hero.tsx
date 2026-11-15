@@ -11,14 +11,14 @@ export default function Hero() {
   const currentCar = featuredCars[activeCarIndex] || featuredCars[0];
 
   return (
-    <section className="relative min-h-[92vh] pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden flex items-center bg-[#02162e]">
+    <section className="relative min-h-[85vh] pt-20 sm:pt-28 pb-12 sm:pb-20 overflow-hidden flex items-center bg-[#02162e]">
       {/* Dynamic Brand Ambient Blue Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[320px] sm:w-[800px] h-[300px] sm:h-[500px] bg-[#0280F9]/12 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Left Column: Official Positioning & Values */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             {/* Accreditation Badge */}
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#04244D] border border-[#0280F9]/35 shadow-lg">
               <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -28,11 +28,11 @@ export default function Hero() {
             </div>
 
             {/* Main Headline & Usulan Tagline */}
-            <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            <div className="space-y-2 sm:space-y-3">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
                 Pilih mobil. <span className="blue-gradient-text block mt-0.5">Siap jalan.</span>
               </h1>
-              <p className="text-sm sm:text-lg text-gray-200 max-w-2xl font-normal leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-200 max-w-2xl font-normal leading-relaxed">
                 Abo Rent Car adalah rental mobil di Bandung Raya dengan komunikasi yang praktis,
                 ramah, dan jelas. Pilihan armada lengkap mulai{" "}
                 <strong className="text-white">Rp 275.000/hari</strong>, lepas kunci tanpa ribet
@@ -41,7 +41,7 @@ export default function Hero() {
             </div>
 
             {/* 3 Core Value Promises (Jelas, Ramah, Praktis) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-1">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-200">
                 <CheckCircle2 size={16} className="text-[#0280F9] shrink-0" />
                 <span>Tanpa Deposit Tunai (Cukup KTP &amp; SIM)</span>
@@ -61,7 +61,7 @@ export default function Hero() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 sm:pt-2">
               <a
                 href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
                   "Halo Abo Rent Car, saya ingin cek ketersediaan mobil untuk tanggal perjalanan saya."
@@ -84,7 +84,7 @@ export default function Hero() {
             </div>
 
             {/* Social Proof Strip */}
-            <div className="pt-5 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
+            <div className="pt-4 sm:pt-5 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
               <div>
                 <div className="text-xl sm:text-3xl font-extrabold text-white font-mono">
                   4.95<span className="text-[#0280F9]">/5</span>
@@ -120,10 +120,10 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Featured Catalog Showcase */}
-          <div className="lg:col-span-5 mt-4 lg:mt-0">
+          <div className="lg:col-span-5 mt-2 lg:mt-0">
             <div className="luxury-card p-4 sm:p-7 relative overflow-hidden">
               {/* Unit Switcher Tabs */}
-              <div className="flex items-center gap-1.5 sm:gap-2 mb-4 sm:mb-6 overflow-x-auto pb-2 scrollbar-none">
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-3.5 sm:mb-6 overflow-x-auto pb-2 scrollbar-none">
                 {featuredCars.map((car, idx) => (
                   <button
                     key={car.id}
@@ -140,7 +140,7 @@ export default function Hero() {
               </div>
 
               {/* Showcase Image (Official Catalog Square Card) */}
-              <div className="relative aspect-square rounded-xl overflow-hidden bg-[#02162e] p-2 border border-white/10 mb-4 sm:mb-6 max-h-[300px] sm:max-h-none mx-auto w-full">
+              <div className="relative aspect-square rounded-xl overflow-hidden bg-[#02162e] p-2 border border-white/10 mb-3.5 sm:mb-6 max-h-[280px] sm:max-h-none mx-auto w-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={currentCar.image}
@@ -169,7 +169,7 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs text-gray-300 bg-[#02162e] p-2.5 sm:p-3 rounded-lg border border-white/5">
+                <div className="grid grid-cols-2 gap-2 text-xs text-gray-300 bg-[#02162e] p-2 sm:p-3 rounded-lg border border-white/5">
                   <div className="flex items-center gap-1.5">
                     <Users size={13} className="text-[#0280F9]" />
                     <span>{currentCar.seats} Kursi</span>
