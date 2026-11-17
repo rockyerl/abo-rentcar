@@ -5,6 +5,7 @@ import Navbar from "@/shared/components/Navbar";
 import Hero from "@/features/hero/components/Hero";
 import CaseStudies from "@/features/cases/components/CaseStudies";
 import Fleet from "@/features/fleet/components/Fleet";
+import TourPackages from "@/features/tourpackages/components/TourPackages";
 import HowItWorks from "@/features/howitworks/components/HowItWorks";
 import OrderForm from "@/features/booking/components/OrderForm";
 import FAQ from "@/features/faq/components/FAQ";
@@ -36,7 +37,10 @@ export default function Home() {
         {/* 3. Pilihan Mobil Lengkap */}
         <Fleet onSelectCar={handleSelectCarForCalculator} />
 
-        {/* 4. Cara Sewa Ringkas (Tanpa Deposit) */}
+        {/* 4. Paket Supir & Wisata Bandung All-In */}
+        <TourPackages />
+
+        {/* 5. Cara Sewa Ringkas (Tanpa Deposit) */}
         <HowItWorks />
 
         {/* 5. Kalkulator & Booking Instan */}

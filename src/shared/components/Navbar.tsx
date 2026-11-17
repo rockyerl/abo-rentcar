@@ -8,6 +8,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#katalog", label: "Pilihan Mobil" },
+  { href: "#paket-wisata", label: "Paket Supir All-In" },
   { href: "#cara-sewa", label: "Cara Sewa" },
   { href: "#kalkulator", label: "Kalkulator" },
   { href: "#case-studies", label: "Studi Kasus" },

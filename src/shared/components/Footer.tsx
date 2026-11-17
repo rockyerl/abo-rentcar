@@ -46,6 +46,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#paket-wisata" className="hover:text-white transition-colors">
+                  Paket Supir &amp; Wisata All-In
+                </a>
+              </li>
+              <li>
                 <a href="#cara-sewa" className="hover:text-white transition-colors">
                   Cara Sewa Praktis
                 </a>

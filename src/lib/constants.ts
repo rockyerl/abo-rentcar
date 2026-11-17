@@ -594,3 +594,94 @@ export const B2C_EXPERIENCE_STEPS: ExperienceStep[] = [
     tip: "Pilih mobil. Siap jalan.",
   },
 ];
+
+export interface TourPackageCar {
+  name: string;
+  price: number;
+  formattedPrice: string;
+}
+
+export interface DriverTourPackage {
+  id: string;
+  destination: string;
+  tagline: string;
+  badge: string;
+  image: string;
+  destinationsCovered: string[];
+  cars: TourPackageCar[];
+}
+
+export const DRIVER_TOUR_PACKAGES: DriverTourPackage[] = [
+  {
+    id: "bandung-kota",
+    destination: "Bandung Kota",
+    tagline: "Eksplorasi heritage, museum, pusat kuliner & belanja dalam kota Bandung.",
+    badge: "Wisata Kota & Bisnis",
+    image: "/packages/gedung-sate.jpg", // fallback or destination highlight
+    destinationsCovered: [
+      "Gedung Sate & Museum Pos",
+      "Kawasan Braga & Asia Afrika",
+      "Pusat Oleh-oleh & Factory Outlet",
+      "Dago, Riau & Kuliner Bandung",
+    ],
+    cars: [
+      { name: "Innova Reborn", price: 850000, formattedPrice: "Rp 850.000" },
+      { name: "BRV / Stargazer / XL7", price: 800000, formattedPrice: "Rp 800.000" },
+      { name: "All New Xenia / Raize", price: 750000, formattedPrice: "Rp 750.000" },
+      { name: "Honda Brio", price: 650000, formattedPrice: "Rp 650.000" },
+    ],
+  },
+  {
+    id: "lembang",
+    destination: "Lembang (Bandung Utara)",
+    tagline: "Pesona alam sejuk perbukitan, kawah vulkanik & destinasi keluarga favorit.",
+    badge: "Paling Populer",
+    image: "/packages/tangkuban-parahu.jpg",
+    destinationsCovered: [
+      "Tangkuban Parahu",
+      "Floating Market & Farmhouse Lembang",
+      "The Great Asia Africa",
+      "Kebun Teh & Orchid Forest Cikole",
+    ],
+    cars: [
+      { name: "Innova Zenix", price: 1000000, formattedPrice: "Rp 1.000.000" },
+      { name: "Innova Reborn", price: 900000, formattedPrice: "Rp 900.000" },
+      { name: "BRV / Stargazer / XL7", price: 850000, formattedPrice: "Rp 850.000" },
+      { name: "All New Xenia / Raize", price: 780000, formattedPrice: "Rp 780.000" },
+      { name: "Honda Brio", price: 700000, formattedPrice: "Rp 700.000" },
+    ],
+  },
+  {
+    id: "ciwidey-pangalengan",
+    destination: "Ciwidey / Pangalengan (Bandung Selatan)",
+    tagline: "Pemandangan kebun teh legendaris, danau kawah eksotis & petualangan alam terbuka.",
+    badge: "Panorama Alam Terbaik",
+    image: "/packages/kawah-putih.jpg",
+    destinationsCovered: [
+      "Kawah Putih & Ranca Upas",
+      "Nimo Highland & Jembatan Kaca",
+      "Situ Cileunca & Rafting",
+      "Kebun Teh Malabar & Wayang Windu",
+    ],
+    cars: [
+      { name: "Innova Zenix", price: 1050000, formattedPrice: "Rp 1.050.000" },
+      { name: "Innova Reborn", price: 950000, formattedPrice: "Rp 950.000" },
+      { name: "BRV / Stargazer / XL7", price: 900000, formattedPrice: "Rp 900.000" },
+      { name: "All New Xenia / Raize", price: 870000, formattedPrice: "Rp 870.000" },
+      { name: "Honda Brio", price: 800000, formattedPrice: "Rp 800.000" },
+    ],
+  },
+];
+
+export const TOUR_PACKAGE_INCLUSIONS = [
+  "Unit Mobil Tahun Muda (Bersih & AC Dingin)",
+  "Driver Berpengalaman, Sopan & Ramah",
+  "Bahan Bakar Minyak (BBM)",
+  "Uang Makan Supir",
+  "Tarif Tol Selama Rute Wisata",
+];
+
+export const TOUR_PACKAGE_EXCLUSIONS = [
+  "Tiket masuk lokasi objek wisata",
+  "Biaya parkir kendaraan di lokasi wisata",
+];
