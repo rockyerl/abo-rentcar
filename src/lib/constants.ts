@@ -31,8 +31,6 @@ export interface CarFleetItem {
   highlightTag?: string;
   features: string[];
   image: string;
-  ratingScore: number;
-  tripsCount: number;
 }
 
 export const FLEET_CATEGORIES = [
@@ -69,8 +67,6 @@ export const CARS: CarFleetItem[] = [
       "Suspensi Halus TNGA Nyaman Perjalanan Luar Kota",
     ],
     image: "/cars/catalog/innova-zenix-hybrid-matic.jpg",
-    ratingScore: 5.0,
-    tripsCount: 198,
   },
   {
     id: "innova-reborn-diesel",
@@ -98,8 +94,6 @@ export const CARS: CarFleetItem[] = [
       "Pilihan Utama Wisata Lembang, Ciwidey & Luar Kota",
     ],
     image: "/cars/catalog/innova-reborn-diesel-matic.jpg",
-    ratingScore: 4.9,
-    tripsCount: 230,
   },
   {
     id: "all-new-raize",
@@ -127,8 +121,6 @@ export const CARS: CarFleetItem[] = [
       "Hemat Bahan Bakar Cocok Buat Pasangan / Teman",
     ],
     image: "/cars/catalog/raize-g-matic.jpg",
-    ratingScore: 4.9,
-    tripsCount: 174,
   },
   {
     id: "all-new-stargazer",
@@ -156,8 +148,6 @@ export const CARS: CarFleetItem[] = [
       "Kenyamanan Suspensi Maksimal untuk Keluarga",
     ],
     image: "/cars/catalog/stargazer-prime-matic.jpg",
-    ratingScore: 4.9,
-    tripsCount: 165,
   },
   {
     id: "all-new-xpander",
@@ -185,8 +175,6 @@ export const CARS: CarFleetItem[] = [
       "AC Dingin Merata Sampai Baris Belakang",
     ],
     image: "/cars/catalog/xpander-exceed-matic.jpg",
-    ratingScore: 5.0,
-    tripsCount: 215,
   },
   {
     id: "all-new-brv",
@@ -214,8 +202,6 @@ export const CARS: CarFleetItem[] = [
       "Interior Rapi & Bagasi Fleksibel",
     ],
     image: "/cars/catalog/brv-e-matic.jpg",
-    ratingScore: 4.8,
-    tripsCount: 142,
   },
   {
     id: "all-new-xl7-hybrid",
@@ -243,8 +229,6 @@ export const CARS: CarFleetItem[] = [
       "Pilihan Populer Jelajah Bandung Raya",
     ],
     image: "/cars/catalog/xl7-beta-hybrid-matic.jpg",
-    ratingScore: 4.9,
-    tripsCount: 153,
   },
   {
     id: "all-new-xenia",
@@ -272,8 +256,6 @@ export const CARS: CarFleetItem[] = [
       "Kapasitas 7 Penumpang Siap Jalan",
     ],
     image: "/cars/catalog/xenia-g-matic.jpg",
-    ratingScore: 4.8,
-    tripsCount: 160,
   },
   {
     id: "all-new-avanza",
@@ -301,8 +283,6 @@ export const CARS: CarFleetItem[] = [
       "Sangat Irit & Handal Menjelajah Kota",
     ],
     image: "/cars/catalog/avanza-g-manual.jpg",
-    ratingScore: 4.9,
-    tripsCount: 280,
   },
   {
     id: "all-new-agya-2024",
@@ -330,8 +310,6 @@ export const CARS: CarFleetItem[] = [
       "Sangat Pas untuk Mobilitas Santai di Bandung",
     ],
     image: "/cars/catalog/agya-e-matic.jpg",
-    ratingScore: 4.9,
-    tripsCount: 190,
   },
   {
     id: "all-new-brio-2024",
@@ -359,8 +337,6 @@ export const CARS: CarFleetItem[] = [
       "Parkir Super Mudah di Kafe & Spot Wisata Hits",
     ],
     image: "/cars/catalog/brio-2024-e-matic.jpg",
-    ratingScore: 5.0,
-    tripsCount: 245,
   },
   {
     id: "all-new-brio-2022",
@@ -388,8 +364,6 @@ export const CARS: CarFleetItem[] = [
       "Tarif Sangat Terjangkau untuk Harian / Mingguan",
     ],
     image: "/cars/catalog/brio-2022-e-matic.jpg",
-    ratingScore: 4.8,
-    tripsCount: 310,
   },
   {
     id: "all-new-sigra",
@@ -417,8 +391,6 @@ export const CARS: CarFleetItem[] = [
       "Rear Air Circulator Dingin Sampai Belakang",
     ],
     image: "/cars/catalog/sigra-r-matic.jpg",
-    ratingScore: 4.8,
-    tripsCount: 220,
   },
   {
     id: "all-new-calya-2024",
@@ -446,8 +418,6 @@ export const CARS: CarFleetItem[] = [
       "Pilihan Tepat Perjalanan Hemat Seluruh Keluarga",
     ],
     image: "/cars/catalog/calya-g-manual.jpg",
-    ratingScore: 4.9,
-    tripsCount: 350,
   },
 ];
 

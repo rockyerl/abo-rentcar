@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { CASE_STUDIES } from "@/lib/constants";
 import {
-  Sparkles,
+  Compass,
   CheckCircle2,
   Car,
   MapPin,
   Calendar,
-  Quote,
-  Star,
+  ShieldCheck,
   ArrowRight,
 } from "lucide-react";
 
@@ -42,22 +41,19 @@ export default function CaseStudies({
       id="case-studies"
       className="py-16 sm:py-24 bg-[#031C3B] relative border-t border-white/5"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-[#0280F9]/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header: Scenario & Outcome First */}
+        {/* Section Header: Real Scenario Focus */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3 sm:space-y-4">
           <div className="vip-badge">
-            <Sparkles size={13} />
-            Studi Kasus Skenario Nyata
+            <Compass size={13} />
+            Skenario Nyata Pelanggan
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Pengalaman Nyata Bersama <span className="blue-gradient-text">Abo Rent Car.</span>
+            Solusi Perjalanan Bersama <span className="blue-gradient-text">Abo Rent Car.</span>
           </h2>
           <p className="text-gray-300 text-xs sm:text-base leading-relaxed">
-            Setiap perjalanan memiliki kebutuhan berbeda. Berikut adalah cara kami memberikan solusi
-            praktis, ramah, dan jelas bagi pelanggan di lapangan.
+            Setiap rute memiliki kebutuhan armada berbeda. Lihat bagaimana kami memberikan solusi
+            praktis, ramah, dan jelas untuk berbagai kebutuhan perjalanan di Bandung Raya.
           </p>
         </div>
 
@@ -115,7 +111,7 @@ export default function CaseStudies({
               {/* Challenge Box */}
               <div className="p-3.5 sm:p-4 rounded-xl bg-red-950/20 border border-red-500/20 space-y-1.5 sm:space-y-2">
                 <div className="flex items-center gap-2 text-red-400 text-[11px] sm:text-xs font-bold font-mono uppercase tracking-wider">
-                  <span>Kebutuhan / Tantangan:</span>
+                  <span>Kebutuhan / Tantangan Perjalanan:</span>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                   {activeCase.challenge}
@@ -126,7 +122,7 @@ export default function CaseStudies({
               <div className="p-3.5 sm:p-4 rounded-xl bg-blue-950/20 border border-[#0280F9]/25 space-y-1.5 sm:space-y-2">
                 <div className="flex items-center gap-2 text-[#0280F9] text-[11px] sm:text-xs font-bold font-mono uppercase tracking-wider">
                   <CheckCircle2 size={13} />
-                  <span>Solusi dari Abo Rent Car:</span>
+                  <span>Solusi dari Layanan Kami:</span>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
                   {activeCase.solution}
@@ -134,38 +130,29 @@ export default function CaseStudies({
               </div>
             </div>
 
-            {/* Right 5 cols: Client Quote & Immediate Booking Action */}
+            {/* Right 5 cols: Authentic Guarantee & Booking Action */}
             <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-5 sm:space-y-6">
-              {/* Testimonial Quote Box */}
-              <div className="p-4 sm:p-6 rounded-2xl bg-[#02162e] border border-white/10 space-y-3 sm:space-y-4 relative">
-                <Quote size={24} className="text-[#0280F9]/40" />
-                <p className="text-xs sm:text-base text-gray-200 italic leading-relaxed">
-                  &ldquo;{activeCase.quote}&rdquo;
+              {/* Trust Box */}
+              <div className="p-4 sm:p-6 rounded-2xl bg-[#02162e] border border-white/10 space-y-3 sm:space-y-4">
+                <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
+                  <ShieldCheck size={18} />
+                  <span>Standar Layanan Terjamin</span>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
+                  Semua armada diserahterimakan dalam kondisi bersih luar-dalam, AC prima, BBM
+                  terisi, dan supir yang beretika sopan serta menguasai jalan di Jawa Barat.
                 </p>
-
-                <div className="pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between">
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white">
-                      {activeCase.clientName}
-                    </h4>
-                    <span className="text-[10px] sm:text-[11px] text-gray-400 font-mono">
-                      {activeCase.location}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1 text-amber-400">
-                    {[...Array(activeCase.rating)].map((_, i) => (
-                      <Star key={i} size={12} fill="currentColor" />
-                    ))}
-                  </div>
+                <div className="pt-2 border-t border-white/5 text-[11px] text-gray-400">
+                  <span>Rute Acuan: </span>
+                  <span className="text-white font-medium">{activeCase.location}</span>
                 </div>
               </div>
 
               {/* Booking CTA for this car model */}
-              <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-[#04244D] to-[#02162e] border border-[#0280F9]/30 space-y-3 sm:space-y-4 shadow-xl">
+              <div className="p-4 sm:p-6 rounded-2xl bg-[#04244D] border border-[#0280F9]/30 space-y-3 sm:space-y-4 shadow-xl">
                 <div>
                   <span className="text-[9px] sm:text-[10px] font-mono text-[#0280F9] uppercase tracking-wider block">
-                    Ingin Perjalanan Serupa?
+                    Pilihan Unit Terkait
                   </span>
                   <h4 className="text-sm sm:text-base font-bold text-white mt-0.5">
                     Sewa {activeCase.vehicleUsed}

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CARS, WA_NUMBER } from "@/lib/constants";
 import WhatsAppIcon from "@/shared/components/WhatsAppIcon";
-import { ChevronRight, Star, Users, Gauge, CheckCircle2 } from "lucide-react";
+import { ChevronRight, Users, Gauge, CheckCircle2, ShieldCheck, MapPin } from "lucide-react";
 
 export default function Hero() {
   const [activeCarIndex, setActiveCarIndex] = useState(0);
@@ -83,38 +83,36 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social Proof Strip */}
+            {/* Real Business Metrics Strip */}
             <div className="pt-4 sm:pt-5 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
-              <div>
-                <div className="text-xl sm:text-3xl font-extrabold text-white font-mono">
-                  4.95<span className="text-[#0280F9]">/5</span>
-                </div>
-                <div className="flex text-amber-400 my-0.5 sm:my-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={11} className="sm:w-3.5 sm:h-3.5" fill="currentColor" />
-                  ))}
-                </div>
-                <div className="text-[10px] sm:text-[11px] text-gray-400">1.200+ Penyewa</div>
-              </div>
-
               <div>
                 <div className="text-xl sm:text-3xl font-extrabold text-white font-mono">
                   14<span className="text-[#0280F9]">+</span>
                 </div>
                 <div className="text-[11px] sm:text-xs text-gray-300 font-semibold my-0.5 sm:my-1">
-                  Unit Siap Jalan
+                  Pilihan Mobil
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-gray-400">Tahun Muda</div>
+                <div className="text-[10px] sm:text-[11px] text-gray-400">Tahun 2023–2024</div>
               </div>
 
               <div>
                 <div className="text-xl sm:text-3xl font-extrabold text-white font-mono">
-                  100<span className="text-[#0280F9]">%</span>
+                  10<span className="text-[#0280F9]"> Menit</span>
                 </div>
                 <div className="text-[11px] sm:text-xs text-gray-300 font-semibold my-0.5 sm:my-1">
-                  Tepat Waktu
+                  Ke Stasiun Whoosh
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-gray-400">Antar Stasiun</div>
+                <div className="text-[10px] sm:text-[11px] text-gray-400">Hub Padalarang</div>
+              </div>
+
+              <div>
+                <div className="text-xl sm:text-3xl font-extrabold text-white font-mono">
+                  Rp 0<span className="text-[#0280F9]"></span>
+                </div>
+                <div className="text-[11px] sm:text-xs text-gray-300 font-semibold my-0.5 sm:my-1">
+                  Deposit Tunai
+                </div>
+                <div className="text-[10px] sm:text-[11px] text-gray-400">Lepas Kunci Cepat</div>
               </div>
             </div>
           </div>

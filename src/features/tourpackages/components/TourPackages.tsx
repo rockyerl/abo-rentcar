@@ -9,7 +9,7 @@ import {
   DriverTourPackage,
 } from "@/lib/constants";
 import WhatsAppIcon from "@/shared/components/WhatsAppIcon";
-import { MapPin, Check, X, Compass, Sparkles, ShieldCheck, ChevronRight, Info } from "lucide-react";
+import { MapPin, Check, Compass, ShieldCheck, ChevronRight, Info } from "lucide-react";
 
 interface TourPackagesProps {
   onSelectPackageForBooking?: (pkgName: string, carName: string) => void;
@@ -40,8 +40,8 @@ export default function TourPackages({ onSelectPackageForBooking }: TourPackages
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0280F9]/10 border border-[#0280F9]/30 text-[#60a5fa] text-xs font-semibold tracking-wide uppercase mb-4">
-            <Sparkles size={14} className="text-[#0280F9]" />
-            <span>Layanan Eksklusif All-In</span>
+            <Compass size={14} className="text-[#0280F9]" />
+            <span>Layanan All-In Siap Jalan</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
             Paket Supir &amp; Wisata Bandung
